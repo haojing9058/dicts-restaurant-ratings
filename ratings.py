@@ -23,8 +23,16 @@ def add_users_rating():
     users_restaurant = raw_input("Where have you eaten recently? > ")
     users_restaurant = users_restaurant.title()
 
-    users_score = raw_input("Cool! How would you rate it out of 5? > ")
-    users_score = int(users_score)
+    while True:
+        users_score = raw_input("Cool! How would you rate it out of 5? > ")
+
+        if users_score not in "12345":
+            print "Sorry, please type a number from 1-5."
+            continue
+
+        else:
+            users_score = int(users_score)
+            break
 
     return [users_restaurant, users_score]
 
