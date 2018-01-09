@@ -64,6 +64,8 @@ def main_menu():
 
     user_choice = raw_input("What would you like to do? > ")
 
+    restaurant_scores = {}
+
     if user_choice == "S":
         show_sorted_ratings()
 
@@ -71,10 +73,15 @@ def main_menu():
         # function to show all ratings sorted
 
     elif user_choice == "A":
-        pass
+        users_restaurant, users_score = add_users_rating()
+        restaurant_scores[users_restaurant] = users_score
+        print restaurant_scores
         # function to add a restaurant
 
     elif user_choice == "Q":
         pass
     else:
         print "Sorry, I didn't understand your choice!"
+
+
+main_menu()
