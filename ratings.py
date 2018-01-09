@@ -1,10 +1,8 @@
 import sys
 
 
-def restaurant_rating_sorter(filename):
-    """Parses a text file and returns
-    an alphabetized list of restaurant ratings."""
-# read the file
+def clean_up_data(filename):
+    """Parses a text file for sorting."""
 
     restaurant_scores = {}
 
@@ -13,8 +11,16 @@ def restaurant_rating_sorter(filename):
         line = line.rstrip()
         rest_ratings = line.split(":")
 
-        # for restaurant, score in restaurants_and_scores:
         restaurant_scores[rest_ratings[0]] = rest_ratings[1]
+
+    return restaurant_scores
+
+
+def show_sorted_ratings():
+    """Parses a text file and returns
+    an alphabetized list of restaurant ratings."""
+
+    restaurant_scores = clean_up_data(sys.argv[1])
 
     sorted_rests = sorted(restaurant_scores.items())
 
@@ -22,7 +28,8 @@ def restaurant_rating_sorter(filename):
         print "{} has a rating of {}.".format(rest_rating[0], rest_rating[1])
 
 
-# store them in a dictionary
-# sort by restaurant name
+show_sorted_ratings()
 
-restaurant_rating_sorter(sys.argv[1])
+# new function taking user input (twice)
+    # takes restaurant name
+    # takes restaurant score
